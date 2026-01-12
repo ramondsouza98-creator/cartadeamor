@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Para Você 💖</title>
+
+<style>
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1a001a, #000);
+  color: #fff;
+  font-family: 'Georgia', serif;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+#text {
+  white-space: pre-wrap;
+}
+
+.play {
+  display: block;
+  margin: 20px auto;
+  padding: 14px 30px;
+  font-size: 18px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.heart {
+  position: fixed;
+  top: -10px;
+  color: rgba(255,0,80,0.9);
+  font-size: 22px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+</style>
+</head>
+
+<body>
+
+<button class="play" onclick="start()">💖 Tocar música</button>
+
+<div class="container">
+  <div id="text"></div>
+</div>
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_38b1d09f79.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const text = `Eu passo todo o tempo tentando convencer a mim mesmo de que o tempo curaria a falta que você faz,
+mas a verdade é que o tempo só está servindo para organizar a bagunça e me mostrar,
+com uma clareza dolorosa, o tamanho do erro que cometi.
+
+Olhando para trás, percebo que deixei escapar a única coisa que realmente dava sentido aos meus dias: nós.
+
+Não estou aqui para pedir que você esqueça o que passou,
+mas para perguntar se ainda existe um espaço,
+por menor que seja,
+para escrevermos algo novo.
+
+Eu redescobri um amor que nunca deveria ter se perdido
+entre falhas, desencontros e discussões por motivos bobos.
+É um amor que amadureceu na saudade
+e que hoje entende que felicidade não é a ausência de problemas,
+mas a presença de alguém por quem vale a pena lutar.
+
+Você me daria a chance de ser, hoje,
+o homem que eu deveria ter sido ontem?
+
+Não quero apenas voltar ao que éramos.
+Quero construir algo mais forte,
+mais honesto
+e muito mais cuidadoso.
+
+Com amor,
+seu grude ❤️`;
+
+let i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("text").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
+  }
+}
+
+function start() {
+  document.getElementById("music").play();
+  typeWriter();
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
