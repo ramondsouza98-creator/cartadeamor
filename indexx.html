@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Você 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      color: white;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(255,0,80,0.5);
+    }
+
+    .play {
+      margin: 20px 0;
+      padding: 15px 30px;
+      font-size: 18px;
+      background: crimson;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: red;
+      font-size: 20px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <button class="play" onclick="playMusic()">▶ Tocar nossa música</button>
+
+
+  <!-- SUBSTITUA o link da imagem abaixo pelo link da sua carta -->
+  <img src="carta.jpg" alt="Carta de Amor"> 
+</div>
+
+<iframe 
+  allow="autoplay *; encrypted-media *;" 
+  frameborder="0" 
+  height="150" 
+  style="width:100%;max-width:660px;overflow:hidden;background:transparent;" 
+  sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" 
+  src="https://embed.music.apple.com/br/album/cars-outside/1665224237?i=1665224239">
+</iframe>
+
+
+<script>
+  function playMusic() {
+    document.getElementById("music").play();
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 8000);
+  }
+
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
+ alt="Carta de Amor">
+</div>
+
+
+
+<script>
+  function playMusic() {
+    document.getElementById("music").play();
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 8000);
+  }
+
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
