@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Para Você</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0b0b0b;
+  color: #ffffff;
+  font-family: Georgia, serif;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  font-size: 20px;
+  line-height: 1.9;
+  z-index: 2;
+  position: relative;
+}
+
+#text {
+  white-space: pre-wrap;
+}
+
+/* Corações e girassóis */
+.fall {
+  position: fixed;
+  top: -10px;
+  font-size: 22px;
+  animation: fall linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div id="text"></div>
+</div>
+
+<script>
+const carta = `Eu passo todo o tempo tentando convencer a mim mesmo de que o tempo curaria a falta que você faz,
+mas a verdade é que o tempo só está servindo para organizar a bagunça e me mostrar,
+com uma clareza dolorosa, o tamanho do erro que cometi.
+
+Olhando para trás, percebo que deixei escapar a única coisa que realmente dava sentido aos meus dias: nós.
+
+Não estou aqui para pedir que você esqueça o que passou,
+mas para perguntar se ainda existe um espaço,
+por menor que seja,
+para escrevermos algo novo.
+
+Eu redescobri um amor que, na verdade, nunca deveria ter se perdido
+entre as nossas falhas, desencontros e discussões por motivos bobos.
+É um amor que amadureceu na saudade
+e que hoje entende que a felicidade não é a ausência de problemas,
+mas a presença de alguém por quem vale a pena lutar.
+
+Você me daria a chance de ser, hoje,
+o homem que eu deveria ter sido ontem?
+
+Não quero apenas voltar ao que éramos;
+quero construir algo mais forte,
+mais honesto
+e muito mais cuidadoso.
+
+Com amor,
+seu grude ❤️`;
+
+let i = 0;
+function escrever() {
+  if (i < carta.length) {
+    document.getElementById("text").innerHTML += carta.charAt(i);
+    i++;
+    setTimeout(escrever, 35);
+  }
+}
+escrever();
+
+function criarElemento() {
+  const el = document.createElement("div");
+  el.className = "fall";
+  el.innerHTML = Math.random() > 0.5 ? "❤️" : "🌻";
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.animationDuration = (4 + Math.random() * 5) + "s";
+  d
