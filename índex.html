@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Teste</title>
+</head>
+
+<body style="background:black;color:white;font-family:Georgia;padding:20px;">
+
+<h2>Se você está lendo isso, o HTML funciona.</h2>
+
+<div id="texto"></div>
+
+<script>
+const carta = "Este texto está sendo digitado agora. Se você vê isso, o JavaScript está funcionando.";
+
+let i = 0;
+function escrever(){
+  if(i < carta.length){
+    document.getElementById("texto").innerHTML += carta.charAt(i);
+    i++;
+    setTimeout(escrever, 50);
+  }
+}
+escrever();
+</script>
+
+</body>
+</html>
